@@ -1,0 +1,30 @@
+
+
+
+<div class="ml-7 mt-3 ">
+    <div class="chat">
+        <div class="form-inline">
+            <img class="img-responsive" src="assets/bot.png"style="width:50px">
+         <h4>ChatBot</h4> 
+        </div>
+        <div class="chat">
+<ng-container *ngFor="let message of messages">
+<div class="message mt-3"
+[ngClass]="{ 'from': message.author === 'bot',
+'to': message.author === 'user' }">
+{{ message.content }}
+</div>
+</ng-container>
+</div>
+<div style=" position: fixed;bottom: 0px;left: 0px;right: 0px;width: 100%;height: 50px;z-index: 99;margin-top: 10px;">
+
+
+  <label  for="nameField">Message Here!!</label>
+<input class=" mt-1 ml-5 w-75 "  [(ngModel)]="value" (keyup.enter)="sendMessage()" type="text">
+<button class="btn btn-primary ml-3"(click)="sendMessage()">send</button>
+
+</div>
+<ng-template #dialogInfo>
+  <span [className]="'float-right'"></span>
+  </ng-template>
+ 
